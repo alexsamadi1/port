@@ -13,7 +13,7 @@ export default function RhythmCaseStudy() {
   return (
     <main className="relative w-full bg-gradient-to-br from-[#0f0f0f] via-[#1a1f33] to-[#050505] text-white overflow-hidden">
       {/* Top Section */}
-      <div className="px-6 sm:px-12 lg:px-24 py-20 space-y-24">
+      <div className="px-6 sm:px-12 lg:px-24 py-20 space-y-16">
         <div className="absolute top-[-100px] left-[-80px] w-72 h-72 bg-violet-500/20 rounded-full blur-3xl pointer-events-none z-0" />
 
         <Link href="/" className="text-blue-400 hover:text-blue-300 underline block">
@@ -33,6 +33,16 @@ export default function RhythmCaseStudy() {
           <p className="text-lg sm:text-xl text-gray-300 font-[var(--font-inter)] max-w-2xl mx-auto">
             A look at how I built Rhythm — a GPT-powered daily assistant grounded in behavioral science, designed to help users stay in sync with their goals, habits, and focus.
           </p>
+
+          {/* CTA Button */}
+          <Link
+            href="https://chatgpt.com/g/g-6807c8cdb25881919990db8a4cdbd08b-rhythm-2-0"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-4 px-6 py-3 bg-blue-500/20 hover:bg-blue-500/30 text-white font-medium rounded-xl border border-white/10 shadow-lg transition"
+          >
+            🔗 Try Rhythm on ChatGPT
+          </Link>
         </motion.section>
       </div>
 
