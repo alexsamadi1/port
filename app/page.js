@@ -7,10 +7,10 @@ export default function Home() {
       {/* Nav */}
       <nav className="flex justify-center space-x-6 mb-12">
         <Link
-          href="/lifeos"
+          href="/rhythm"
           className="hover:text-blue-400 transition"
         >
-          LifeOS Case Study
+          Rhythm Case Study
         </Link>
         <Link
           href="/site-case-study"
@@ -59,17 +59,16 @@ export default function Home() {
         <h2 className="text-4xl font-bold mb-6">🚀 Featured Projects</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
 
-          {/* LifeOS Card */}
+          {/* Rhythm Case Study Card */}
           <Link
-            href="/lifeos"
+            href="/rhythm"
             className="group block border border-white/20 rounded-2xl p-6 transition-shadow hover:shadow-2xl"
           >
             <h3 className="text-2xl font-semibold mb-2 group-hover:text-blue-300 transition">
-              LifeOS – Goal & Habit Coaching GPT
+              Rhythm – Your Psychology-First AI Companion
             </h3>
             <p className="text-gray-300 mb-4">
-              A personalized GPT assistant that integrates goal tracking, weekly planning,
-              and reflection across 6 life domains.
+              A personal assistant GPT designed to support goal-setting, habit formation, and daily structure — all grounded in human psychology.
             </p>
             <span className="text-blue-400 group-hover:text-blue-300 underline">
               View Case Study →
