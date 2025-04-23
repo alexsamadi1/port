@@ -1,66 +1,118 @@
+// app/rhythm/page.js
+'use client';
+
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+};
+
 export default function RhythmCaseStudy() {
-    return (
-      <main className="bg-black text-white px-6 sm:px-12 py-12 max-w-4xl mx-auto space-y-16">
-        {/* Back Link */}
-        <a href="/" className="text-blue-400 hover:text-blue-300 underline">
+  return (
+    <main className="relative w-full bg-gradient-to-br from-[#0f0f0f] via-[#1a1f33] to-[#050505] text-white overflow-hidden">
+      {/* Top Section */}
+      <div className="px-6 sm:px-12 lg:px-24 py-20 space-y-24">
+        <div className="absolute top-[-100px] left-[-80px] w-72 h-72 bg-violet-500/20 rounded-full blur-3xl pointer-events-none z-0" />
+
+        <Link href="/" className="text-blue-400 hover:text-blue-300 underline block">
           ← Back to Home
-        </a>
-  
-        {/* Hero Section */}
-        <section className="space-y-4 text-center">
-          <h1 className="text-5xl font-extrabold">Rhythm: Psychology Meets AI</h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Rhythm is a personal assistant GPT designed to bring structure, reflection, and sustainable progress into your daily flow — rooted in psychology and built with LLMs.
+        </Link>
+
+        <motion.section
+          className="space-y-6 text-center z-10 relative"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight font-[var(--font-grotesk)]">
+            Rhythm – Your Psychology-First AI Companion
+          </h1>
+          <p className="text-lg sm:text-xl text-gray-300 font-[var(--font-inter)] max-w-2xl mx-auto">
+            A look at how I built Rhythm — a GPT-powered daily assistant grounded in behavioral science, designed to help users stay in sync with their goals, habits, and focus.
           </p>
-        </section>
-  
-        {/* Problem / Solution */}
-        <section className="space-y-4">
-          <h2 className="text-3xl font-bold text-blue-300">📌 The Problem</h2>
+        </motion.section>
+      </div>
+
+      {/* Main Content Section */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 space-y-24">
+        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-blue-500/20 to-transparent my-12" />
+
+        {/* Origins */}
+        <motion.section
+          className="space-y-6 font-[var(--font-inter)]"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <h2 className="text-3xl font-bold text-white font-[var(--font-grotesk)]">Why I Built Rhythm</h2>
           <p className="text-gray-300">
-            Most productivity tools are fragmented — task managers, calendars, habit trackers — and none really "understand" you. It’s easy to get overwhelmed and fall out of sync.
+            I wanted a system that supported me not just in what I had to do — but who I wanted to become. Something flexible, intelligent, and emotionally aware. So I started building Rhythm.
           </p>
-          <h2 className="text-3xl font-bold text-green-300 mt-6">💡 The Solution</h2>
           <p className="text-gray-300">
-            Rhythm combines behavioral psychology with large language models to create a daily assistant that listens, adapts, and helps you build your rhythm — one day at a time.
+            It began as a tool to manage tasks, but quickly grew into something more: a self-reflective assistant that uses behavioral science to help users structure their day around meaning, not just productivity.
           </p>
-        </section>
-  
+        </motion.section>
+
+        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-blue-500/20 to-transparent my-12" />
+
         {/* Key Features */}
-        <section className="space-y-4">
-          <h2 className="text-3xl font-bold text-yellow-300">⚙️ Key Features</h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-300">
-            <li>Daily planning with emotional intelligence</li>
-            <li>Built-in habit and goal structure across life domains</li>
-            <li>Natural conversation + reflection integration</li>
-            <li>Memory-based evolution (if enabled)</li>
+        <motion.section
+          className="bg-white/5 rounded-xl p-6 sm:p-8 shadow-inner space-y-6 font-[var(--font-inter)]"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <h2 className="text-3xl font-bold font-[var(--font-grotesk)]">Core Features</h2>
+          <ul className="list-disc list-inside text-gray-300 space-y-2">
+            <li><strong>Daily Rhythm Flow:</strong> Morning planning, evening review, and habit reminders</li>
+            <li><strong>Life Domain Framework:</strong> Tracks progress across goals like Health, Career, Creativity, etc.</li>
+            <li><strong>Memory-Aware:</strong> Custom GPT version remembers goals and tasks for continuity</li>
+            <li><strong>Emotionally Intelligent:</strong> Designed to support well-being, not just execution</li>
           </ul>
-        </section>
-  
-        {/* Design Philosophy */}
-        <section className="space-y-4">
-          <h2 className="text-3xl font-bold text-purple-300">🧠 Design Philosophy</h2>
+        </motion.section>
+
+        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-blue-500/20 to-transparent my-12" />
+
+        {/* What I Learned */}
+        <motion.section
+          className="space-y-6 font-[var(--font-inter)]"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <h2 className="text-3xl font-bold font-[var(--font-grotesk)]">What I Learned</h2>
+          <ul className="list-disc list-inside text-gray-300 space-y-2">
+            <li><strong>Designing with Psychology:</strong> Applying behavioral science helped shape features that actually stick</li>
+            <li><strong>ChatGPT as a Collaborator:</strong> From system prompts to interface flow, I used GPT to ideate, refine, and improve</li>
+            <li><strong>Simplicity Wins:</strong> The best feedback came from making it feel personal — not complex</li>
+          </ul>
+        </motion.section>
+
+        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-blue-500/20 to-transparent my-12" />
+
+        {/* What’s Next */}
+        <motion.section
+          className="space-y-6 font-[var(--font-inter)]"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <h2 className="text-3xl font-bold font-[var(--font-grotesk)]">What’s Next</h2>
           <p className="text-gray-300">
-            Rhythm was built with a few principles in mind: psychology-first design, low-friction interaction, emotional intelligence, and a clean, focused visual style.
+            Rhythm is still evolving. I’m exploring integrations with calendar APIs, richer journaling prompts, and deeper customization features. The goal is to build a truly personal interface for living.
           </p>
-        </section>
-  
-        {/* Placeholder for screenshots or demo */}
-        <section className="space-y-4">
-          <h2 className="text-3xl font-bold text-pink-300">📸 Screenshots & Demo</h2>
-          <p className="text-gray-400 italic">
-            Coming soon — interactive demo and visuals.
-          </p>
-        </section>
-  
-        {/* Final Thoughts */}
-        <section className="space-y-4">
-          <h2 className="text-3xl font-bold text-cyan-300">📈 Reflections & What’s Next</h2>
-          <p className="text-gray-300">
-            Rhythm is still evolving — next steps include deeper customization, better visual summaries, and eventually integrating with external tools like calendars and health apps.
-          </p>
-        </section>
-      </main>
-    );
-  }
-  
+        </motion.section>
+
+        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-blue-500/10 to-transparent my-12" />
+        <div className="pb-24 sm:pb-32" />
+      </div>
+    </main>
+  );
+}
