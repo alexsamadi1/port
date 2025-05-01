@@ -33,7 +33,7 @@ export default function Home() {
           <ul className="md:hidden bg-white px-6 pb-4 shadow text-gray-700 font-medium space-y-3">
             <li><a href="#home" onClick={() => setMenuOpen(false)}>Home</a></li>
             <li><a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a></li>
-            <li><a href="/approach" onClick={() => setMenuOpen(false)}>My Approach</a></li>
+            <li><a href="/my-approach" onClick={() => setMenuOpen(false)}>My Approach</a></li>
             <li><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
           </ul>
         )}
@@ -60,7 +60,7 @@ export default function Home() {
             Hi, I'm Alexander Samadi
           </h1>
           <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-            I design <span className="text-teal-500 font-semibold">emotionally intelligent systems</span> — blending AI, psychology, and strategy — to help people build <span className="text-blue-600 font-semibold">clarity, resilience,</span> and sustainable growth.
+            I blend <span className="text-teal-500 font-semibold">psychology, technology,</span> and strategy to create human-centered systems, products, and ideas that help people live and work with more clarity, meaning, and purpose.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <a href="#projects" className="inline-block bg-blue-700 text-white font-semibold px-8 py-4 rounded-md hover:bg-teal-500 hover:scale-105 transition">
@@ -113,11 +113,6 @@ export default function Home() {
             </p>
             <span className="text-gray-400 italic">Case study launching soon</span>
           </div>
-        </div>
-        <div className="mt-12 text-center">
-          <a href="#projects" className="inline-block bg-blue-700 hover:bg-teal-500 text-white font-semibold px-10 py-4 rounded-full transition transform hover:scale-105 duration-300">
-            View All Projects
-          </a>
         </div>
       </motion.section>
 

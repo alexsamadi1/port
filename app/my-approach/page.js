@@ -30,10 +30,10 @@ export default function MyApproach() {
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[500px] h-[500px] bg-blue-200 opacity-20 rounded-full blur-3xl"></div>
         <div className="relative max-w-4xl mx-auto">
           <h1 className="text-5xl font-extrabold text-gray-900 mb-6 leading-tight tracking-tight">
-            My Approach
+            The Psychology Behind My Work
           </h1>
           <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-            From Psychology to Emotionally Intelligent Systems
+            Why I build human-centered systems — and the values that guide them
           </p>
         </div>
       </motion.section>
@@ -43,7 +43,7 @@ export default function MyApproach() {
         <path fill="currentColor" d="M0,0 C480,100 960,0 1440,100 L1440,0 L0,0 Z"></path>
       </svg>
 
-      {/* Section 1: Psychology Foundations */}
+      {/* Section 1 */}
       <motion.section
         className="w-full bg-blue-50 py-20"
         initial="hidden"
@@ -52,13 +52,12 @@ export default function MyApproach() {
         variants={fadeInUp}
       >
         <div className="max-w-3xl mx-auto text-center px-6">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">A Foundation in Human Psychology</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Rooted in Psychology</h2>
           <p className="text-lg text-gray-700 leading-relaxed">
-            I studied psychology not to become a therapist — but because I was obsessed with how people think, make decisions, and grow.
-            I wanted to understand attention, motivation, burnout, clarity, and what drives meaningful behavior change.
+            I studied psychology not to become a therapist — but because I was fascinated by how people think, feel, focus, and grow. My curiosity led me to explore motivation, behavior change, and emotional regulation — not in isolation, but in how they affect daily life, productivity, and decision-making.
           </p>
           <p className="text-lg text-gray-700 mt-4">
-            That foundation continues to guide how I design every system today — not around features, but around how real people function.
+            Today, that same foundation drives how I approach everything I build — whether it's a digital tool, a system, or a strategy.
           </p>
         </div>
       </motion.section>
@@ -68,7 +67,7 @@ export default function MyApproach() {
         <path fill="currentColor" d="M0,0 C480,100 960,0 1440,100 L1440,0 L0,0 Z"></path>
       </svg>
 
-      {/* Section 2: Psychology Meets Tech */}
+      {/* Section 2 */}
       <motion.section
         className="w-full bg-teal-50 py-20"
         initial="hidden"
@@ -77,13 +76,12 @@ export default function MyApproach() {
         variants={fadeInUp}
       >
         <div className="max-w-3xl mx-auto text-center px-6">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Psychology Meets Technology</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Why Systems Matter to Me</h2>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Most productivity tools are built to increase output — but not to protect mental clarity or emotional resilience.
-            I started building systems like Rhythm Core and Rhythm Flow because I wanted tech that understands the human side of performance.
+            I believe the systems we use shape our behavior, energy, and identity. Most digital tools focus on productivity and speed. I build tools that prioritize clarity, intentionality, and emotional alignment.
           </p>
           <p className="text-lg text-gray-700 mt-4">
-            From LLM design to UI layout to content strategy, I apply psychology to make tools feel more intuitive, supportive, and aligned with how people *actually* work and grow.
+            Whether it's a GPT-powered assistant or a workflow strategy, I design with the human at the center — not the metric.
           </p>
         </div>
       </motion.section>
@@ -93,7 +91,7 @@ export default function MyApproach() {
         <path fill="currentColor" d="M0,0 C480,100 960,0 1440,100 L1440,0 L0,0 Z"></path>
       </svg>
 
-      {/* Section 3: A New Vision */}
+      {/* Section 3 */}
       <motion.section
         className="w-full bg-blue-50 py-20"
         initial="hidden"
@@ -102,13 +100,12 @@ export default function MyApproach() {
         variants={fadeInUp}
       >
         <div className="max-w-3xl mx-auto text-center px-6">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">A New Vision for Technology</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Professional Range, Human Focus</h2>
           <p className="text-lg text-gray-700 leading-relaxed">
-            I believe the best systems aren’t built to impress investors — they’re built to protect attention, guide growth, and align with what actually matters to the user.
+            My work has spanned federal agencies and nonprofits — from managing the integrity of NOAA’s $17B property system to leading strategy and insights for a nonprofit serving immigrants.
           </p>
           <p className="text-lg text-gray-700 mt-4">
-            This is why I design emotionally intelligent systems — tools that adapt, support, and empower people to grow without burning out.
-            It’s not just a design choice — it’s a values choice.
+            In every environment, I’ve applied the same lens: simplify complexity, protect what matters, and make decisions human-first.
           </p>
         </div>
       </motion.section>
@@ -122,13 +119,13 @@ export default function MyApproach() {
         variants={fadeInUp}
       >
         <div className="max-w-2xl mx-auto text-center px-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">The Human Side of Systems</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">What I'm Building Toward</h2>
           <p className="text-md text-gray-700 leading-relaxed">
-            I build with one goal in mind:  
-            <span className="text-blue-600 font-semibold">to create systems that feel like they understand you — not just manage you.</span>
+            I want to help reshape how people relate to work, time, and themselves. 
+            Not through overwhelming tech — but through tools and systems that feel like allies.
           </p>
           <p className="text-md text-gray-700 mt-6">
-            If that vision resonates with you, I’d love to connect.
+            If you're building toward that too, let's connect.
           </p>
           <a
             href="mailto:alexsamadi321@gmail.com"
