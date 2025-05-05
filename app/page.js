@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -86,6 +87,7 @@ export default function Home() {
           Projects & Case Studies
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {/* Rhythm Core */}
           <div className="border-2 border-teal-400 rounded-3xl p-8 bg-white shadow-lg hover:shadow-xl transition">
             <h3 className="text-2xl font-bold text-gray-800 mb-3">Personal AI Assistant</h3>
             <p className="text-gray-600 mb-6">
@@ -96,6 +98,7 @@ export default function Home() {
             </a>
           </div>
 
+          {/* Portfolio Website */}
           <div className="border-2 border-blue-400 rounded-3xl p-8 bg-white shadow-lg hover:shadow-xl transition">
             <h3 className="text-2xl font-bold text-gray-800 mb-3">Portfolio Website</h3>
             <p className="text-gray-600 mb-6">
@@ -106,6 +109,18 @@ export default function Home() {
             </a>
           </div>
 
+          {/* Potencia */}
+          <div className="border-2 border-yellow-400 rounded-3xl p-8 bg-white shadow-lg hover:shadow-xl transition">
+            <h3 className="text-2xl font-bold text-gray-800 mb-3">Potencia: Nonprofit Case Study</h3>
+            <p className="text-gray-600 mb-6">
+              A 3-year journey of using analytics, marketing, and psychology to help scale an immigrant-focused nonprofit — from intern to board member.
+            </p>
+            <Link href="/potencia" className="inline-block font-semibold text-yellow-500 hover:underline">
+              Learn More →
+            </Link>
+          </div>
+
+          {/* Rhythm Flow (Coming Soon) */}
           <div className="border-2 border-indigo-400 rounded-3xl p-8 bg-white shadow-lg hover:shadow-xl transition md:col-span-2">
             <h3 className="text-2xl font-bold text-gray-800 mb-3">Rhythm Flow (Coming Soon)</h3>
             <p className="text-gray-600 mb-6">
