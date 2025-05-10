@@ -11,9 +11,9 @@ const fadeInUp = {
 
 export default function RhythmCore() {
   return (
-    <main className="flex flex-col items-center bg-white overflow-hidden">
+    <main className="flex flex-col items-center bg-white text-gray-800 overflow-hidden">
 
-      {/* Navbar Back Button */}
+      {/* Back Button */}
       <header className="w-full max-w-6xl px-6 pt-6">
         <Link href="/" className="text-blue-600 font-semibold hover:underline">
           ← Back to Home
@@ -22,181 +22,105 @@ export default function RhythmCore() {
 
       {/* Hero Section */}
       <motion.section
-        className="relative w-full flex flex-col items-center justify-center px-6 pt-32 pb-24 text-center bg-gradient-to-b from-gray-50 via-blue-50 to-gray-50 overflow-hidden"
+        className="relative w-full text-center px-6 pt-32 pb-24 bg-gradient-to-br from-gray-50 via-blue-50 to-gray-50 overflow-hidden border-b border-blue-100"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
         variants={fadeInUp}
       >
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[500px] h-[500px] bg-blue-200 opacity-20 rounded-full blur-3xl"></div>
-        <div className="relative max-w-4xl mx-auto">
-          <h1 className="text-5xl font-extrabold text-gray-900 mb-6 leading-tight tracking-tight">
+        <div className="absolute top-[-120px] left-[-100px] w-[400px] h-[400px] bg-teal-200 opacity-20 blur-3xl rounded-full z-0" />
+        <div className="absolute bottom-[-100px] right-[-100px] w-[350px] h-[350px] bg-blue-300 opacity-20 blur-2xl rounded-full z-0" />
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 leading-tight tracking-tight">
             Rhythm Core: My Ultimate Personal AI Assistant
           </h1>
           <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-            A customized GPT system I built to support my clarity, emotional energy, and strategic growth — designed with psychological precision and strategic depth.
+            A GPT-based system I built to support emotional clarity, strategic focus, and human-centered growth — shaped by psychology, experience, and design.
           </p>
         </div>
       </motion.section>
 
-      {/* Divider */}
-      <svg className="w-full h-12 text-blue-100" viewBox="0 0 1440 100" preserveAspectRatio="none">
-        <path fill="currentColor" d="M0,0 C480,100 960,0 1440,100 L1440,0 L0,0 Z"></path>
-      </svg>
-
       {/* Why I Built It */}
-      <motion.section
-        className="w-full bg-blue-50 py-20"
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={fadeInUp}
-      >
+      <motion.section className="w-full bg-blue-50 py-20" initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeInUp}>
         <div className="max-w-3xl mx-auto text-center px-6">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">Why I Built Rhythm Core</h2>
           <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Productivity tools help you stay organized — but they don't protect your mental clarity, emotional energy, or long-term strategic direction.
+            Most tools help you stay productive. I needed something that also helped me stay present, purposeful, and resilient — especially when life feels chaotic.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed">
-            I wanted something different: an AI system aligned with how I actually think, feel, and grow — keeping me focused, grounded, and aligned with what matters.
+            Rhythm Core became my answer: a custom GPT trained on my systems, values, and goals — designed to help me move through life with more intention and clarity.
           </p>
         </div>
       </motion.section>
-
-      {/* Divider */}
-      <svg className="w-full h-12 text-teal-100" viewBox="0 0 1440 100" preserveAspectRatio="none">
-        <path fill="currentColor" d="M0,0 C480,100 960,0 1440,100 L1440,0 L0,0 Z"></path>
-      </svg>
 
       {/* Philosophy */}
-      <motion.section
-        className="w-full bg-teal-50 py-20"
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={fadeInUp}
-      >
+      <motion.section className="w-full bg-teal-50 py-20" initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeInUp}>
         <div className="max-w-3xl mx-auto text-center px-6">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">My Philosophy</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">A New Kind of System</h2>
           <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            I believe AI shouldn’t just be smart — it should be emotionally aware, adaptable, and personal.
+            Built on LLMs, refined with lived experience — Rhythm Core is designed to think with you, not for you. It doesn’t just automate tasks; it supports your rhythm.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Rhythm Core isn’t just a prompt chain.  
-            It’s a system shaped by psychology, strategy, and experience — built to enhance human well-being as much as productivity.
+            This isn’t about being efficient. It’s about being aligned.
           </p>
         </div>
       </motion.section>
 
-      {/* Divider */}
-      <svg className="w-full h-12 text-blue-100" viewBox="0 0 1440 100" preserveAspectRatio="none">
-        <path fill="currentColor" d="M0,0 C480,100 960,0 1440,100 L1440,0 L0,0 Z"></path>
-      </svg>
-
-      {/* Inside the System */}
-      <motion.section
-        className="w-full bg-blue-50 py-24"
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={fadeInUp}
-      >
+      {/* Feature Set */}
+      <motion.section className="w-full bg-white py-24" initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeInUp}>
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-4xl font-bold text-gray-900 mb-8">Inside Rhythm Core</h2>
-          <p className="text-lg text-gray-700 mb-12 max-w-2xl mx-auto">
-            Here’s what Rhythm Core actually does — and why it matters.
-          </p>
           <div className="text-left max-w-2xl mx-auto space-y-8 text-gray-700">
-            {/* Feature List */}
             {[
-              { title: "🧠 Morning Focus Alignment", desc: "Guides a 2–3 minute mental reset to sync tasks with emotional energy and strategic goals." },
-              { title: "🎯 Weekly Goal Memory", desc: "Tracks top goals and gently redirects focus when needed." },
-              { title: "🌗 Life Season Switching", desc: "Adapts tone and strategy between Career Sprint, Creative Flow, and Recovery modes." },
-              { title: "🧘‍♂️ Mental Resilience Tools", desc: "Provides quick recovery flows like breathing prompts and reflection routines." },
-              { title: "🗂️ Decision Triage Flow", desc: "Helps isolate what matters when stuck, preventing analysis paralysis." },
-              { title: "🧭 Tone Personalization", desc: "Responds in different emotional tones depending on the situation." },
-              { title: "🗓️ Light Calendar Sync", desc: "Connects lightly to calendars for emotional prep, not intrusive alerts." },
-            ].map((feature, idx) => (
-              <div key={idx} className="flex items-start gap-4">
+              { title: "🧠 Morning Alignment", desc: "2-minute prompts to set intention, clarity, and flow." },
+              { title: "🌊 Life Season Switching", desc: "Adjusts tone and strategy across different life modes: Sprint, Flow, or Recovery." },
+              { title: "🎯 Weekly Goal Memory", desc: "Tracks priorities and nudges you gently when you're off path." },
+              { title: "🗂️ Decision Triage", desc: "Breaks down overwhelming tasks into human-sized steps." },
+              { title: "🧘‍♂️ Recovery Flows", desc: "Includes reflection templates, breath cues, and grounding tools." },
+              { title: "🧭 Emotional Tone Adaptation", desc: "Shifts how it responds — soft, firm, supportive — based on your state." },
+            ].map((item, index) => (
+              <div key={index} className="flex items-start gap-4">
                 <FaCheckCircle className="text-teal-500 mt-1" />
-                <div><strong>{feature.title}</strong>: {feature.desc}</div>
+                <div><strong>{item.title}</strong>: {item.desc}</div>
               </div>
             ))}
           </div>
         </div>
       </motion.section>
 
-      {/* Divider */}
-      <svg className="w-full h-12 text-teal-100" viewBox="0 0 1440 100" preserveAspectRatio="none">
-        <path fill="currentColor" d="M0,0 C480,100 960,0 1440,100 L1440,0 L0,0 Z"></path>
-      </svg>
-
-      {/* Lessons Learned */}
-      <motion.section
-        className="w-full bg-teal-50 py-24"
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={fadeInUp}
-      >
-        <div className="max-w-4xl mx-auto text-center px-6">
+      {/* What I Learned */}
+      <motion.section className="w-full bg-blue-50 py-24" initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeInUp}>
+        <div className="max-w-3xl mx-auto text-center px-6">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">What I Learned</h2>
           <div className="text-left max-w-2xl mx-auto space-y-8 text-gray-700">
             <div className="flex items-start gap-4">
               <FaCheckCircle className="text-blue-500 mt-1" />
-              <p><strong>Prompt Architecture:</strong> Natural, multi-step conversational flows.</p>
+              <p><strong>Prompt Architecture:</strong> How to chain natural, context-aware flows.</p>
             </div>
             <div className="flex items-start gap-4">
               <FaCheckCircle className="text-blue-500 mt-1" />
-              <p><strong>Emotional Tone Shaping:</strong> Adapting AI voice to emotional needs.</p>
+              <p><strong>Emotionally Aware Systems:</strong> Designing for human mindset and energy — not just data.</p>
             </div>
             <div className="flex items-start gap-4">
               <FaCheckCircle className="text-blue-500 mt-1" />
-              <p><strong>Strategic Memory Design:</strong> Goals and rhythms &gt; endless task lists.</p>
-            </div>
-            <div className="flex items-start gap-4">
-              <FaCheckCircle className="text-blue-500 mt-1" />
-              <p><strong>Human-Centered System Thinking:</strong> Designing with how people think and grow naturally.</p>
+              <p><strong>Behavior-First Design:</strong> Leading with clarity, rhythm, and self-alignment instead of rigid checklists.</p>
             </div>
           </div>
         </div>
       </motion.section>
 
-      {/* What's Next */}
-      <motion.section
-        className="w-full bg-blue-50 py-24"
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={fadeInUp}
-      >
-        <div className="max-w-3xl mx-auto text-center px-6">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">What’s Next</h2>
-          <p className="text-lg text-gray-700 leading-relaxed">
-            Rhythm Core is just the beginning.  
-            I'm continuing to refine it — and exploring broader systems that prioritize emotional health and strategic depth.
-          </p>
-        </div>
-      </motion.section>
-
-      {/* Final Closing */}
-      <motion.section
-        className="w-full bg-gray-50 py-20"
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={fadeInUp}
-      >
+      {/* Final CTA */}
+      <motion.section className="w-full bg-gray-50 py-20" initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeInUp}>
         <div className="max-w-xl mx-auto text-center px-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Interested in learning more?</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Curious how you’d build your own rhythm?</h2>
           <p className="text-md text-gray-700 mb-6">
-            I’m always open to thoughtful conversations about human-centered AI, productivity design, and emotional resilience systems.
+            I’d love to share more, or help you build a version that fits your world.
           </p>
           <a
             href="mailto:alexsamadi321@gmail.com"
-            className="inline-flex items-center gap-2 bg-blue-700 text-white font-semibold px-8 py-4 rounded-md hover:bg-teal-500 hover:scale-105 transition transform duration-300"
+            className="inline-block bg-blue-700 text-white font-semibold px-8 py-4 rounded-full hover:bg-teal-600 hover:scale-105 transition-transform duration-300"
           >
-            Reach Out
+            Let’s Talk
           </a>
         </div>
       </motion.section>

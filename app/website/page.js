@@ -137,15 +137,15 @@ export default function Website() {
         variants={fadeInUp}
       >
         <div className="max-w-xl mx-auto text-center px-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Want help building something similar?</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Let’s Build Something Thoughtful</h2>
           <p className="text-md text-gray-700 mb-6">
-            I'm open to freelance design for GPT-based website builds.
+            I love using design and technology to bring clarity and intention to great ideas. If this resonated with you, I’d love to chat.
           </p>
           <a
             href="mailto:alexsamadi321@gmail.com"
-            className="inline-flex items-center gap-2 bg-blue-700 text-white font-semibold px-8 py-4 rounded-md hover:bg-teal-500 hover:scale-105 transition transform duration-300"
+            className="inline-flex items-center gap-2 bg-blue-700 text-white font-semibold px-10 py-4 rounded-full hover:bg-teal-500 hover:scale-105 transition-transform duration-300"
           >
-            Contact Me
+            Say Hello
           </a>
         </div>
       </motion.section>
