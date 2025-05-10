@@ -512,7 +512,7 @@ export default function Home() {
               <FaEnvelope className="text-blue-500 text-lg" /> <span>Email</span>
             </a>
             <a
-              href="https://www.linkedin.com/in/alexander-samadi/"
+              href="https://www.linkedin.com/in/alex-samadi/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition"
