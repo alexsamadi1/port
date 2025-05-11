@@ -241,12 +241,12 @@ export default function Home() {
           icon: '💡'
         },
         {
-          title: 'Rhythm Flow (Coming Soon)',
-          description: 'A visual productivity platform based on daily emotional rhythms, sustainable achievement, and mindful strategic growth.',
-          link: null,
-          color: 'indigo',
-          icon: '📈'
-        }
+          title: 'RepliCore: GPT Fleet Framework',
+          description: 'A system for creating tailored GPT agents that think, speak, and solve problems like you — built from a shared core identity and delivered with training, tools, and support.',
+          link: '/replicore',
+          color: 'teal',
+          icon: '🧠'
+        },
       ].map((project, index) => {
         const colorClasses = {
           teal: 'border-teal-400 text-teal-500',
