@@ -167,13 +167,33 @@
       .section-wrap { padding: 72px 24px; }
       .featured-card { grid-template-columns: 1fr; padding: 36px 28px; }
       .components-grid { grid-template-columns: 1fr 1fr; }
-      .featured-metrics { flex-direction: row; min-width: unset; }
+      .outcome-metrics-grid { grid-template-columns: 1fr 1fr !important; }
+      .featured-metrics { flex-direction: row; min-width: unset; flex-wrap: wrap; }
+      .featured-metrics .metric-box { flex: 1; min-width: 140px; }
       .work-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .about-sidebar { position: static; }
       #contact .section-wrap { flex-direction: column; align-items: flex-start; }
       .contact-links { align-items: flex-start; }
-      footer { padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
+      .footer-inner { grid-template-columns: 1fr !important; text-align: center; gap: 16px; }
+      .footer-inner > div:last-child { text-align: center !important; }
+      .footer-nav { justify-content: center !important; }
+      footer { padding: 20px 24px; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 38px; }
+      .components-grid { grid-template-columns: 1fr; }
+      .outcome-metrics-grid { grid-template-columns: 1fr 1fr !important; }
+      .featured-metrics { flex-direction: column; }
+      .featured-metrics .metric-box { min-width: unset; }
+      .featured-card { padding: 28px 20px; }
+      .work-card { padding: 28px 24px; }
+      .hero-stats { flex-direction: column; }
+      .stat-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+      .stat-value { text-align: left; }
+      .section-wrap { padding: 56px 20px; }
+      .featured-card .work-title { font-size: 21px; }
     }
   </style>
 </head>
@@ -264,7 +284,7 @@
               <div class="component-item-text">Identified and resolved data integrity issues — including stale purchase orders that were skewing procurement calculations and causing the program to underestimate true need</div>
             </div>
           </div>
-          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 28px;">
+          <div class="outcome-metrics-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 28px;">
             <div class="metric-box"><span class="metric-num a" style="font-size:18px;">↓</span><span class="metric-label">Backorders decreased program-wide</span></div>
             <div class="metric-box"><span class="metric-num a" style="font-size:18px;">↓</span><span class="metric-label">Zero-balance items reduced</span></div>
             <div class="metric-box"><span class="metric-num p" style="font-size:18px;">↓</span><span class="metric-label">Total spend reduced via targeted purchasing</span></div>
@@ -446,12 +466,12 @@
   </section>
 
   <footer>
-    <div style="max-width:1200px;margin:0 auto;padding:40px 56px;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:24px;">
+    <div class="footer-inner" style="max-width:1200px;margin:0 auto;padding:40px 56px;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:24px;">
       <div>
         <div style="font-family:var(--font-serif);font-size:16px;font-weight:700;color:rgba(255,255,255,0.7);margin-bottom:6px;">Alex Samadi</div>
         <div style="font-size:12px;color:rgba(255,255,255,0.25);">© 2026 · Washington D.C.</div>
       </div>
-      <div style="display:flex;gap:28px;justify-content:center;">
+      <div class="footer-nav" style="display:flex;gap:28px;justify-content:center;">
         <a href="#work" style="font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">Work</a>
         <a href="#about" style="font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">About</a>
         <a href="#contact" style="font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">Contact</a>
