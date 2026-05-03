@@ -3,845 +3,476 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Alex Samadi — Data & AI Systems Engineer</title>
+  <title>Alex Samadi — Systems Thinker & Builder</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #080808;
-      --surface: #0f0f0f;
-      --surface2: #141414;
-      --border: #1c1c1c;
-      --border2: #252525;
-      --accent: #00e87a;
-      --accent-dim: rgba(0,232,122,0.08);
-      --accent-glow: rgba(0,232,122,0.15);
-      --text: #e2e2e2;
-      --text-muted: #555;
-      --text-dim: #888;
-      --font-display: 'Syne', 'Arial Black', sans-serif;
-      --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+      --bg: #F5F6FF;
+      --bg2: #ECEEFF;
+      --surface: #FFFFFF;
+      --border: #D6D9F5;
+      --border2: #B8BCEB;
+      --accent: #5538EE;
+      --accent-light: rgba(85,56,238,0.07);
+      --pop: #FF3C2E;
+      --text: #0A0C1E;
+      --text-mid: #2E3250;
+      --text-muted: #7B7FA8;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Outfit', system-ui, sans-serif;
     }
 
     html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-sans); font-weight: 400; line-height: 1.6; overflow-x: hidden; }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-display);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* NOISE OVERLAY */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.4;
-    }
-
-    /* GRID BACKGROUND */
-    .grid-bg {
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(var(--border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 60px 60px;
-      opacity: 0.35;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* NAV */
     nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 100;
-      padding: 20px 48px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      padding: 0 56px; height: 68px;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: background 0.4s, border-color 0.4s;
       border-bottom: 1px solid transparent;
-      transition: border-color 0.3s, background 0.3s;
     }
-    nav.scrolled {
-      border-color: var(--border);
-      background: rgba(8,8,8,0.85);
-      backdrop-filter: blur(12px);
-    }
-    .nav-logo {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      color: var(--text-dim);
-      letter-spacing: 0.05em;
-    }
-    .nav-logo span { color: var(--accent); }
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--text-muted);
-      text-decoration: none;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
+    nav.scrolled { background: rgba(245,246,255,0.93); backdrop-filter: blur(16px); border-color: var(--border); }
+    .nav-name { font-family: var(--font-serif); font-size: 17px; font-weight: 700; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: var(--text-muted); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
 
-    /* SECTIONS */
-    section { position: relative; z-index: 1; }
-
-    /* HERO */
     #hero {
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 120px 48px 80px;
-      max-width: 1100px;
-      margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+      padding: 120px 56px 80px; max-width: 1200px; margin: 0 auto;
     }
-    .hero-tag {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--accent);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .hero-left { padding-right: 72px; }
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 12px; font-weight: 600; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 28px;
     }
-    .hero-tag::before {
-      content: '';
-      display: inline-block;
-      width: 24px;
-      height: 1px;
-      background: var(--accent);
-    }
-    h1 {
-      font-family: var(--font-display);
-      font-size: clamp(48px, 7vw, 88px);
-      font-weight: 800;
-      line-height: 1.0;
-      letter-spacing: -0.03em;
-      margin-bottom: 28px;
-      color: #fff;
-    }
-    h1 .dim { color: var(--text-muted); }
-    .hero-sub {
-      font-size: clamp(16px, 2vw, 20px);
-      color: var(--text-dim);
-      max-width: 560px;
-      line-height: 1.65;
-      margin-bottom: 48px;
-      font-weight: 400;
-    }
-    .hero-stats {
-      display: flex;
-      gap: 0;
-      margin-bottom: 52px;
-      border: 1px solid var(--border2);
-      width: fit-content;
-    }
-    .stat {
-      padding: 18px 32px;
-      border-right: 1px solid var(--border2);
-    }
-    .stat:last-child { border-right: none; }
-    .stat-num {
-      font-family: var(--font-mono);
-      font-size: 26px;
-      font-weight: 500;
-      color: var(--accent);
-      display: block;
-      letter-spacing: -0.02em;
-    }
-    .stat-label {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .hero-cta {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: #000;
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 14px 28px;
-      text-decoration: none;
-      transition: opacity 0.2s, transform 0.2s;
-      display: inline-block;
-    }
-    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
-    .btn-secondary {
-      border: 1px solid var(--border2);
-      color: var(--text-dim);
-      font-family: var(--font-mono);
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 14px 28px;
-      text-decoration: none;
-      transition: border-color 0.2s, color 0.2s;
-      display: inline-block;
-    }
-    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+    .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--accent); border-radius: 2px; }
+    h1 { font-family: var(--font-serif); font-size: clamp(44px, 5.5vw, 72px); font-weight: 900; line-height: 1.05; letter-spacing: -0.025em; color: var(--text); margin-bottom: 28px; }
+    h1 em { font-style: italic; color: var(--accent); }
+    .hero-desc { font-size: 17px; color: var(--text-mid); line-height: 1.8; max-width: 440px; margin-bottom: 44px; font-weight: 300; }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .btn-primary { background: var(--accent); color: #fff; font-family: var(--font-sans); font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 14px 28px; text-decoration: none; transition: background 0.2s, transform 0.15s; border-radius: 3px; }
+    .btn-primary:hover { background: #3d1fcc; transform: translateY(-1px); }
+    .btn-ghost { font-size: 13px; font-weight: 500; color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+    .btn-ghost:hover { color: var(--accent); }
+    .btn-ghost::after { content: '→'; }
 
-    /* SCROLL INDICATOR */
-    .scroll-hint {
-      position: absolute;
-      bottom: 40px;
-      left: 48px;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      letter-spacing: 0.08em;
+    .hero-right {
+      border: 1.5px solid var(--border2); background: var(--surface);
+      border-radius: 8px; overflow: hidden;
+      box-shadow: 0 0 0 6px var(--accent-light);
     }
-    .scroll-hint::after {
-      content: '';
-      display: block;
-      width: 1px;
-      height: 40px;
-      background: linear-gradient(to bottom, var(--text-muted), transparent);
-      animation: scrollPulse 2s ease-in-out infinite;
-    }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 1; }
-    }
+    .stat-row { padding: 22px 28px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .stat-row:last-child { border-bottom: none; }
+    .stat-label { font-size: 12px; color: var(--text-muted); flex-shrink: 0; line-height: 1.4; }
+    .stat-value { font-size: 14px; font-weight: 500; color: var(--text); text-align: right; line-height: 1.4; }
+    .stat-value.pop { font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--pop); }
+    .stat-value.acc { font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--accent); }
+    .stat-badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: 20px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--accent-light); color: var(--accent); border: 1px solid rgba(85,56,238,0.2); }
 
-    /* SECTION HEADER */
-    .section-wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 100px 48px;
-    }
-    .section-label {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--accent);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .section-label::before {
-      content: '';
-      display: inline-block;
-      width: 16px;
-      height: 1px;
-      background: var(--accent);
-    }
-    h2 {
-      font-size: clamp(32px, 4vw, 48px);
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      color: #fff;
-      margin-bottom: 56px;
-      line-height: 1.1;
-    }
-    h2 .accent { color: var(--accent); }
+    .divider { width: 100%; height: 1px; background: var(--border); }
 
-    /* PROJECT CARDS */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1px;
-      background: var(--border);
-    }
-    .project-card {
-      background: var(--bg);
-      padding: 40px 44px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 32px;
-      align-items: start;
-      transition: background 0.2s;
-      position: relative;
-      overflow: hidden;
-    }
-    .project-card::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: transparent;
-      transition: background 0.2s;
-    }
-    .project-card:hover { background: var(--surface); }
-    .project-card:hover::before { background: var(--accent); }
+    .section-wrap { max-width: 1200px; margin: 0 auto; padding: 100px 56px; }
+    .section-label { font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 12px; }
+    h2 { font-family: var(--font-serif); font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; letter-spacing: -0.02em; color: var(--text); line-height: 1.15; margin-bottom: 52px; }
 
-    .project-num {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--text-muted);
-      letter-spacing: 0.1em;
-      margin-bottom: 16px;
-    }
-    .project-title {
-      font-size: 22px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 10px;
-      letter-spacing: -0.02em;
-    }
-    .project-desc {
-      font-size: 15px;
-      color: var(--text-dim);
-      line-height: 1.7;
-      margin-bottom: 24px;
-      max-width: 560px;
-    }
-    .project-tags {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .tag {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      padding: 5px 10px;
-      border: 1px solid var(--border2);
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
-    .tag-accent {
-      border-color: rgba(0,232,122,0.3);
-      color: var(--accent);
-      background: var(--accent-dim);
-    }
-    .project-metric {
-      text-align: right;
-      padding: 20px 24px;
-      border: 1px solid var(--border2);
-      background: var(--surface2);
-      min-width: 160px;
-      flex-shrink: 0;
-      align-self: start;
-      margin-top: 8px;
-    }
-    .metric-num {
-      font-family: var(--font-mono);
-      font-size: 32px;
-      font-weight: 500;
-      color: var(--accent);
-      display: block;
-      letter-spacing: -0.03em;
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-    .metric-label {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
+    #work { background: var(--surface); }
 
-    /* STACK SECTION */
-    #stack { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .stack-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 0;
-      border: 1px solid var(--border2);
+    .featured-card {
+      background: var(--text); border-radius: 8px; padding: 52px 56px; margin-bottom: 1px;
+      display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start;
+      position: relative; overflow: hidden;
     }
-    .stack-group {
-      padding: 28px 32px;
-      border-right: 1px solid var(--border2);
-    }
-    .stack-group:last-child { border-right: none; }
-    .stack-group-label {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--accent);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-    .stack-items {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .stack-items li {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      color: var(--text-dim);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .stack-items li::before {
-      content: '›';
-      color: var(--accent);
-      font-size: 14px;
-    }
+    .featured-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--pop)); }
+    .featured-label { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #a78bfa; background: rgba(85,56,238,0.15); padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(85,56,238,0.3); margin-bottom: 20px; }
+    .featured-card .work-num { color: rgba(255,255,255,0.3); margin-bottom: 12px; }
+    .featured-card .work-title { color: #fff; font-size: 26px; }
+    .featured-card .work-subtitle { color: rgba(255,255,255,0.4); margin-bottom: 20px; text-transform: uppercase; font-size: 12px; letter-spacing: 0.04em; }
+    .featured-card .work-body { color: rgba(255,255,255,0.65); font-weight: 300; margin-bottom: 28px; font-size: 15px; line-height: 1.8; }
 
-    /* ABOUT */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: start;
-    }
-    .about-text p {
-      font-size: 16px;
-      color: var(--text-dim);
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-    .about-text p strong { color: var(--text); font-weight: 600; }
-    .about-sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      border: 1px solid var(--border2);
-    }
-    .sidebar-item {
-      padding: 20px 24px;
-      border-bottom: 1px solid var(--border2);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .sidebar-item:last-child { border-bottom: none; }
-    .sidebar-key {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .sidebar-val {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      color: var(--text);
-      text-align: right;
-    }
-    .sidebar-val .green { color: var(--accent); }
+    .components-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 0 0 28px; }
+    .component-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 14px 16px; }
+    .component-item-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #a78bfa; margin-bottom: 7px; }
+    .component-item-text { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.5; font-weight: 300; }
 
-    /* CONTACT */
-    #contact { border-top: 1px solid var(--border); }
-    .contact-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      gap: 40px;
-    }
-    .contact-heading {
-      font-size: clamp(36px, 5vw, 64px);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: #fff;
-      line-height: 1.05;
-    }
-    .contact-heading .accent-line {
-      display: block;
-      color: var(--accent);
-    }
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      align-items: flex-end;
-    }
-    .contact-link {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      color: var(--text-dim);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: color 0.2s;
-    }
-    .contact-link:hover { color: var(--accent); }
-    .contact-link::before {
-      content: '→';
-      color: var(--accent);
-      font-size: 12px;
-    }
+    .featured-metrics { display: flex; flex-direction: column; gap: 12px; min-width: 176px; }
+    .metric-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 20px; text-align: center; }
+    .metric-num { font-family: var(--font-serif); font-size: 30px; font-weight: 700; display: block; line-height: 1; margin-bottom: 8px; }
+    .metric-num.a { color: #a78bfa; }
+    .metric-num.p { color: var(--pop); }
+    .metric-num.g { color: #34d399; font-size: 22px; }
+    .metric-label { font-size: 11px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.3); line-height: 1.4; }
 
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 24px 48px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-    footer span {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--text-muted);
-      letter-spacing: 0.05em;
-    }
-    .footer-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--accent);
-      border-radius: 50%;
-      animation: blink 2s step-end infinite;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 1; }
-    }
+    .featured-card .work-tags .tag { border-color: rgba(255,255,255,0.12); color: rgba(255,255,255,0.4); }
+    .featured-card .work-tags .tag-accent { background: rgba(85,56,238,0.15); border-color: rgba(85,56,238,0.35); color: #a78bfa; }
 
-    /* CURSOR BLINK in hero */
-    .cursor {
-      display: inline-block;
-      width: 3px;
-      height: 0.85em;
-      background: var(--accent);
-      margin-left: 4px;
-      vertical-align: middle;
-      animation: blink 1s step-end infinite;
-    }
+    .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-top: 1px; }
+    .work-card { background: var(--surface); padding: 36px 40px 32px; display: flex; flex-direction: column; transition: background 0.2s; position: relative; }
+    .work-card:hover { background: var(--bg); }
+    .work-card::after { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--accent); transition: height 0.25s ease; }
+    .work-card:hover::after { height: 100%; }
+    .work-num { font-size: 11px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 18px; }
+    .work-title { font-family: var(--font-serif); font-size: 20px; font-weight: 700; color: var(--text); line-height: 1.25; letter-spacing: -0.015em; margin-bottom: 5px; }
+    .work-subtitle { font-size: 11px; color: var(--text-muted); font-weight: 500; margin-bottom: 18px; letter-spacing: 0.05em; text-transform: uppercase; }
+    .work-body { font-size: 14px; color: var(--text-mid); line-height: 1.8; flex: 1; margin-bottom: 24px; font-weight: 300; }
+    .work-outcome { display: flex; align-items: flex-start; gap: 14px; padding: 14px 18px; background: var(--bg); border-left: 3px solid var(--pop); margin-bottom: 24px; border-radius: 0 4px 4px 0; }
+    .work-outcome-num { font-family: var(--font-serif); font-size: 20px; font-weight: 700; color: var(--pop); white-space: nowrap; line-height: 1.2; flex-shrink: 0; }
+    .work-outcome-text { font-size: 13px; color: var(--text-mid); line-height: 1.55; }
+    .work-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto; }
+    .tag { font-size: 10px; font-weight: 500; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid var(--border2); color: var(--text-muted); text-transform: uppercase; border-radius: 3px; }
+    .tag-accent { background: var(--accent-light); border-color: rgba(85,56,238,0.2); color: var(--accent); }
 
-    /* DIVIDER LINE */
-    .divider {
-      width: 100%;
-      height: 1px;
-      background: var(--border);
-      position: relative;
-      z-index: 1;
-    }
+    #about { background: var(--bg); }
+    .about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 72px; align-items: start; }
+    .about-text h3 { font-family: var(--font-serif); font-size: 26px; font-weight: 700; color: var(--text); line-height: 1.3; letter-spacing: -0.015em; margin-bottom: 28px; }
+    .about-text p { font-size: 16px; color: var(--text-mid); line-height: 1.85; margin-bottom: 20px; font-weight: 300; }
+    .about-text p strong { font-weight: 600; color: var(--text); }
+    .about-sidebar { position: sticky; top: 100px; }
+    .sidebar-block { background: var(--surface); border: 1.5px solid var(--border2); border-radius: 8px; overflow: hidden; margin-bottom: 16px; }
+    .sidebar-row { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; border-bottom: 1px solid var(--border); gap: 16px; }
+    .sidebar-row:last-child { border-bottom: none; }
+    .sidebar-key { font-size: 11px; color: var(--text-muted); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; flex-shrink: 0; }
+    .sidebar-val { font-size: 13px; color: var(--text); font-weight: 500; text-align: right; line-height: 1.4; }
+    .sidebar-val a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .sidebar-val a:hover { text-decoration: underline; }
 
-    /* FADE IN ANIMATIONS */
-    .fade-in {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .fade-in-delay-1 { transition-delay: 0.1s; }
-    .fade-in-delay-2 { transition-delay: 0.2s; }
-    .fade-in-delay-3 { transition-delay: 0.3s; }
-    .fade-in-delay-4 { transition-delay: 0.4s; }
+    #contact { background: var(--text); color: #fff; }
+    #contact .section-wrap { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 48px; }
+    .contact-hed { font-family: var(--font-serif); font-size: clamp(40px, 5vw, 68px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.0; color: #fff; }
+    .contact-hed span { color: var(--accent); font-style: italic; }
+    .contact-links { display: flex; flex-direction: column; gap: 16px; align-items: flex-end; }
+    .contact-link { font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; display: flex; align-items: center; gap: 10px; transition: color 0.2s; }
+    .contact-link:hover { color: #fff; }
+    .contact-link::before { content: '→'; color: var(--accent); font-size: 13px; }
 
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      nav { padding: 16px 24px; }
+    footer { background: var(--text); border-top: 1px solid rgba(255,255,255,0.06); padding: 20px 56px; display: flex; justify-content: space-between; align-items: center; }
+    footer span { font-size: 12px; color: rgba(255,255,255,0.25); }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+
+    @media (max-width: 960px) {
+      nav { padding: 0 24px; }
       .nav-links { display: none; }
-      #hero { padding: 100px 24px 80px; }
+      #hero { grid-template-columns: 1fr; padding: 100px 24px 64px; }
+      .hero-left { padding-right: 0; margin-bottom: 40px; }
       .section-wrap { padding: 72px 24px; }
-      .hero-stats { flex-direction: column; width: 100%; }
-      .stat { border-right: none; border-bottom: 1px solid var(--border2); }
-      .stat:last-child { border-bottom: none; }
-      .project-card { grid-template-columns: 1fr; padding: 28px 24px; }
-      .project-metric { text-align: left; min-width: unset; }
+      .featured-card { grid-template-columns: 1fr; padding: 36px 28px; }
+      .components-grid { grid-template-columns: 1fr 1fr; }
+      .featured-metrics { flex-direction: row; min-width: unset; }
+      .work-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
-      .stack-grid { grid-template-columns: 1fr 1fr; }
-      .stack-group { border-bottom: 1px solid var(--border2); }
-      footer { padding: 20px 24px; }
-      .contact-inner { flex-direction: column; align-items: flex-start; }
+      .about-sidebar { position: static; }
+      #contact .section-wrap { flex-direction: column; align-items: flex-start; }
       .contact-links { align-items: flex-start; }
+      footer { padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
     }
   </style>
 </head>
 <body>
-  <div class="grid-bg"></div>
 
-  <!-- NAV -->
   <nav id="navbar">
-    <div class="nav-logo"><span>~/</span>alex-samadi</div>
+    <a href="#" class="nav-name">Alex Samadi</a>
     <ul class="nav-links">
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#stack">Stack</a></li>
+      <li><a href="#work">Work</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-tag">Data & AI Systems Engineer · Washington D.C.</div>
-    <h1>
-      Building systems<br/>
-      <span class="dim">that make organizations</span><br/>
-      measurably faster<span class="cursor"></span>
-    </h1>
-    <p class="hero-sub">
-      I design retrieval pipelines, automation workflows, and knowledge infrastructure — deployed in production, not just prototyped. Currently building Savant and leading analytics, AI & automation at NOAA/NWS.
-    </p>
-    <div class="hero-stats fade-in fade-in-delay-1">
-      <div class="stat">
-        <span class="stat-num">80%</span>
-        <span class="stat-label">Reporting cycle reduction @ NWS</span>
+  <section>
+    <div id="hero">
+      <div class="hero-left">
+        <div class="hero-eyebrow">Washington D.C. · Data & Product</div>
+        <h1>I find the<br/><em>broken thing.</em><br/>Then I build<br/>the fix.</h1>
+        <p class="hero-desc">I identify broken or manual systems, figure out what's actually wrong, and build the tools that give decision makers the information they need to act.</p>
+        <div class="hero-cta">
+          <a href="#work" class="btn-primary">See the work</a>
+          <a href="https://www.linkedin.com/in/alex-samadi/" target="_blank" class="btn-ghost">LinkedIn</a>
+        </div>
       </div>
-      <div class="stat">
-        <span class="stat-num">RAG</span>
-        <span class="stat-label">Production hybrid BM25 + FAISS</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">2</span>
-        <span class="stat-label">Active deployments</span>
+      <div class="hero-right reveal reveal-delay-1">
+        <div class="stat-row">
+          <span class="stat-label">Current role</span>
+          <span class="stat-value">Analytics & Automation Lead<br/>NOAA / NWS via Innovim</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Background</span>
+          <span class="stat-value">Psychology &<br/>Entrepreneurship, Tufts</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Reporting cycle reduction</span>
+          <span class="stat-value acc">80%</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Procurement decisions<br/>now guided by my framework</span>
+          <span class="stat-value pop">$M+</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Status</span>
+          <span class="stat-value"><span class="stat-badge">Open to opportunities</span></span>
+        </div>
       </div>
     </div>
-    <div class="hero-cta fade-in fade-in-delay-2">
-      <a href="#projects" class="btn-primary">View Projects</a>
-      <a href="https://www.linkedin.com/in/alex-samadi/" target="_blank" class="btn-secondary">LinkedIn →</a>
-    </div>
-    
-    <div class="scroll-hint">scroll</div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- PROJECTS -->
-  <section id="projects">
+  <section id="work">
     <div class="section-wrap">
-      <div class="section-label fade-in">Selected Work</div>
-      <h2 class="fade-in">Projects &amp; <span class="accent">Case Studies</span></h2>
+      <div class="section-label">Selected work</div>
+      <h2>Problems solved,<br/>decisions enabled</h2>
 
-      <div class="projects-grid fade-in">
-
-        <!-- SAVANT -->
-        <div class="project-card">
-          <div>
-            <div class="project-num">01 / Production RAG System</div>
-            <div class="project-title">Savant — Knowledge Retrieval Infrastructure</div>
-            <p class="project-desc">
-              Built a production-grade RAG system implementing Anthropic's Contextual Retrieval architecture. Hybrid BM25 + FAISS search with Reciprocal Rank Fusion consistently outperforms single-method retrieval on ambiguous queries. Section-aware chunking for PDF and DOCX, GPT-4o-mini contextualization pipeline, multi-threaded embedding, and S3-backed index with automatic rebuild. Admin analytics dashboard tracks fallback rates, query patterns, and source attribution.
-            </p>
-            <div class="project-tags">
-              <span class="tag tag-accent">BM25 + FAISS</span>
-              <span class="tag tag-accent">Contextual Embeddings</span>
-              <span class="tag tag-accent">RRF Reranking</span>
-              <span class="tag">Python</span>
-              <span class="tag">Anthropic API</span>
-              <span class="tag">S3</span>
-              <span class="tag">Gov Contractor</span>
+      <div class="featured-card reveal">
+        <div>
+          <div class="featured-label">⭐ Flagship project</div>
+          <div class="work-num">01 · Federal Procurement Intelligence</div>
+          <div class="work-title">ASOS Procurement Framework — Built From Scratch</div>
+          <div class="work-subtitle">NOAA / NWS · ASOS Program · 2025–Present</div>
+          <p class="work-body">The ASOS program — critical federal weather observation infrastructure supporting NOAA, FAA, and DOD nationwide — needed a more robust, data-driven approach to procurement planning. I built a comprehensive framework from scratch, designing both the data layer and the front-end tools that non-technical logisticians and leadership use to guide purchasing decisions. The result: backorders decreased, zero-balance items were reduced, and more targeted purchasing decisions reduced overall spend while ensuring critical items stayed in stock.</p>
+          <div class="components-grid">
+            <div class="component-item">
+              <div class="component-item-label">Demand Forecasting</div>
+              <div class="component-item-text">2-year demand formula calculating recommended stock levels using backorders, on-hand, on-order, and annual demand across every line item</div>
+            </div>
+            <div class="component-item">
+              <div class="component-item-label">SQL Data Layer</div>
+              <div class="component-item-text">5-year historical demand script across 1,000+ parts — the source of truth the entire framework runs on</div>
+            </div>
+            <div class="component-item">
+              <div class="component-item-label">Criticality Integration</div>
+              <div class="component-item-text">Collaborated with engineering to layer mission-criticality ratings into the model — adding risk context pure demand data couldn't capture</div>
+            </div>
+            <div class="component-item">
+              <div class="component-item-label">Logistician Lookup Tool</div>
+              <div class="component-item-text">Front-end product: any logistician searches a part number and instantly gets all critical procurement info — designed for non-technical users</div>
+            </div>
+            <div class="component-item">
+              <div class="component-item-label">Executive Dashboard</div>
+              <div class="component-item-text">Prioritization framework and playbook for leadership: what to buy first, why, and how to think about trade-offs between criticality and cost</div>
+            </div>
+            <div class="component-item">
+              <div class="component-item-label">Data Cleanup</div>
+              <div class="component-item-text">Identified and resolved data integrity issues — including stale purchase orders that were skewing procurement calculations and causing the program to underestimate true need</div>
             </div>
           </div>
-          <div class="project-metric">
-            <span class="metric-num">Building</span>
-            <span class="metric-label">In Development</span>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 28px;">
+            <div class="metric-box"><span class="metric-num a" style="font-size:18px;">↓</span><span class="metric-label">Backorders decreased program-wide</span></div>
+            <div class="metric-box"><span class="metric-num a" style="font-size:18px;">↓</span><span class="metric-label">Zero-balance items reduced</span></div>
+            <div class="metric-box"><span class="metric-num p" style="font-size:18px;">↓</span><span class="metric-label">Total spend reduced via targeted purchasing</span></div>
+            <div class="metric-box"><span class="metric-num g" style="font-size:18px;">→</span><span class="metric-label">Critical items being prioritized to 2-year supply target</span></div>
+          </div>
+          <div class="work-tags">
+            <span class="tag tag-accent">Multi-million $ portfolio</span>
+            <span class="tag tag-accent">End-to-end ownership</span>
+            <span class="tag tag-accent">Front-end user tooling</span>
+            <span class="tag">Oracle SQL</span>
+            <span class="tag">Demand forecasting</span>
+            <span class="tag">Excel</span>
+            <span class="tag">NOAA · FAA · DOD</span>
+          </div>
+        </div>
+        <div class="featured-metrics">
+          <div class="metric-box">
+            <span class="metric-num a">1,000+</span>
+            <span class="metric-label">Parts modeled in SQL</span>
+          </div>
+          <div class="metric-box">
+            <span class="metric-num p">$M+</span>
+            <span class="metric-label">Procurement now guided by this framework</span>
+          </div>
+          <div class="metric-box">
+            <span class="metric-num g">Live</span>
+            <span class="metric-label">Running in production — not a pilot</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-grid">
+        <div class="work-card reveal">
+          <div class="work-num">02 · Federal Data Recovery</div>
+          <div class="work-title">The 1,800-Page Problem</div>
+          <div class="work-subtitle">NOAA / NWS · 2025–Present</div>
+          <p class="work-body">A legacy financial database was decommissioned. The only surviving copy of multi-million dollar budget and contract data — covering key federal projects and active contracts — was locked inside 1,800+ pages of static PDFs. With no established process for recovering the data, preserving the integrity of those financial records required building a solution from scratch.<br/><br/>I designed an algorithmic extraction engine using Power Query (M) to parse the PDFs and reconstruct the database programmatically, then built a verification layer to audit every record against the source.</p>
+          <div class="work-outcome">
+            <span class="work-outcome-num">99.91%</span>
+            <span class="work-outcome-text">verified accuracy. 150+ labor hours saved. Federal audit risk eliminated. Solo, no playbook.</span>
+          </div>
+          <div class="work-tags">
+            <span class="tag tag-accent">Solo ownership</span>
+            <span class="tag">Power Query (M)</span>
+            <span class="tag">Algorithmic extraction</span>
+            <span class="tag">Verification layer</span>
           </div>
         </div>
 
-        <!-- NWS -->
-        <div class="project-card">
-          <div>
-            <div class="project-num">02 / Federal Data & Automation</div>
-            <div class="project-title">NWS Logistics Workflow Automation</div>
-            <p class="project-desc">
-              Redesigned fiscal and logistics reporting workflows for the NWS Logistics Management Branch — infrastructure supporting NWS, FAA, and DOD operations. Rebuilt legacy reporting infrastructure using Oracle SQL scripting and workflow automation, replacing manual multi-day reporting cycles with automated, auditable infrastructure. Also built AI-assisted engineering workflows using custom Gemini agents to accelerate SQL generation and system architecture decisions.
-            </p>
-            <div class="project-tags">
-              <span class="tag tag-accent">80% Cycle Reduction</span>
-              <span class="tag">Oracle SQL</span>
-              <span class="tag">Relational Modeling</span>
-              <span class="tag">Gemini Agents</span>
-              <span class="tag">NWS · FAA · DOD</span>
-            </div>
+        <div class="work-card reveal reveal-delay-1">
+          <div class="work-num">03 · Data Infrastructure & Modernization</div>
+          <div class="work-title">Modernizing NWS Logistics Reporting Infrastructure</div>
+          <div class="work-subtitle">NOAA / NWS · 2025–Present</div>
+          <p class="work-body">The NWS Logistics Management Branch had an opportunity to modernize its reporting infrastructure — transitioning from a legacy PDF-based workflow to a more standardized, maintainable system. I led that modernization effort across six stakeholder groups: ASOS, NEXRAD, COOP, Upper Air, the National Reconditioning Center, and LMB leadership.<br/><br/>
+          I transitioned all reports from PDF deliverables to structured Excel reports, then audited and updated the underlying SQL scripts for accuracy and maintainability. To accelerate that process, I built a custom Gemini "Gem" that ingests any SQL script and outputs an executive summary, inline comments explaining each section, and a technical risk assessment — turning hours of manual review into minutes.<br/><br/>
+          To make the new system sustainable long-term, I built a shared cloud repository on Google Drive housing all updated SQL scripts, report templates, and SOPs I authored for report delivery. I also created and shared a Google Calendar with the data team mapping every report to its delivery deadline — centralizing the delivery process in a single shared source of truth.</p>
+          <div class="work-outcome">
+            <span class="work-outcome-num">80%</span>
+            <span class="work-outcome-text">reduction in reporting cycle time. Six stakeholder groups now on standardized Excel reporting. Full cloud repository, SOPs, and shared delivery calendar in place — a centralized, sustainable system built to last.</span>
           </div>
-          <div class="project-metric">
-            <span class="metric-num">80%</span>
-            <span class="metric-label">Cycle Reduction</span>
-          </div>
-        </div>
-
-        <!-- POTENCIA -->
-        <div class="project-card">
-          <div>
-            <div class="project-num">03 / Custom GPT Deployment</div>
-            <div class="project-title">Potencia GPT — Nonprofit AI Infrastructure</div>
-            <p class="project-desc">
-              Designed and deployed a custom GPT system for Potencia, an immigrant-focused nonprofit. Built organizational knowledge into a GPT assistant to support internal operations, donor communication, and program tracking. Delivered with prompt library, usage documentation, and staff training. Currently serving as Advisory Board member providing ongoing AI strategy.
-            </p>
-            <div class="project-tags">
-              <span class="tag tag-accent">GPT Deployment</span>
-              <span class="tag">Prompt Engineering</span>
-              <span class="tag">Org Knowledge Systems</span>
-              <span class="tag">Nonprofit</span>
-              <span class="tag">Advisory Board</span>
-            </div>
-          </div>
-          <div class="project-metric">
-            <span class="metric-num">Live</span>
-            <span class="metric-label">In Production</span>
+          <div class="work-tags">
+            <span class="tag tag-accent">6 stakeholder groups</span>
+            <span class="tag tag-accent">AI-assisted SQL review</span>
+            <span class="tag">Oracle SQL</span>
+            <span class="tag">Gemini</span>
+            <span class="tag">Google Drive</span>
+            <span class="tag">Excel</span>
+            <span class="tag">SOPs & documentation</span>
           </div>
         </div>
 
+        <div class="work-card reveal reveal-delay-1">
+          <div class="work-num">04 · Executive Budget Intelligence</div>
+          <div class="work-title">LMB Budget Dashboard — First-Ever Program-Level Visibility</div>
+          <div class="work-subtitle">NOAA / NWS · LMB Leadership · 2025</div>
+          <p class="work-body">LMB branch leadership wanted greater visibility into how budget was being allocated across programs — specifically the ability to track NEXRAD and ASOS spend separately rather than as a combined figure. I designed a custom SQL query to aggregate all monthly customer requisitions, factor in purchases already made by LMB staff, and feed a front-end dashboard that gives leadership a real-time view of available balance by appropriation code — segmented by program for the first time.</p>
+          <div class="work-outcome">
+            <span class="work-outcome-num">First-ever</span>
+            <span class="work-outcome-text">program-level budget visibility for LMB leadership. NEXRAD vs. ASOS spend now tracked separately — a level of granularity the branch never had before.</span>
+          </div>
+          <div class="work-tags">
+            <span class="tag tag-accent">First-ever tool</span>
+            <span class="tag tag-accent">Executive dashboard</span>
+            <span class="tag">Oracle SQL</span>
+            <span class="tag">Budget tracking</span>
+            <span class="tag">NEXRAD · ASOS</span>
+          </div>
+        </div>
+
+        <div class="work-card reveal">
+          <div class="work-num">05 · Nonprofit AI Deployment</div>
+          <div class="work-title">Potencia GPT — Marketing & Fundraising Assistant</div>
+          <div class="work-subtitle">Potencia · 2024–Present</div>
+          <p class="work-body">Potencia is a nonprofit serving adult immigrants to build economic mobility. Their team was spending significant time on repetitive marketing and fundraising tasks without a scalable knowledge system behind them.<br/><br/>I designed and deployed a custom GPT with the organization's knowledge, voice, and program details built in — delivered with a full prompt library, usage documentation, and staff training. The team now uses it actively for marketing content, donor communications, and grant writing support.</p>
+          <div class="work-outcome">
+            <span class="work-outcome-num">Active</span>
+            <span class="work-outcome-text">In daily use for marketing and fundraising. Currently serving on Potencia's Advisory Board providing ongoing AI strategy.</span>
+          </div>
+          <div class="work-tags">
+            <span class="tag tag-accent">In active use</span>
+            <span class="tag">GPT deployment</span>
+            <span class="tag">Prompt engineering</span>
+            <span class="tag">Staff training</span>
+            <span class="tag">Nonprofit</span>
+          </div>
+        </div>
+
+        <div class="work-card reveal reveal-delay-1">
+          <div class="work-num">06 · Personal Build</div>
+          <div class="work-title">Savant — What It Takes to Ship AI</div>
+          <div class="work-subtitle">Independent · 2025–2026</div>
+          <p class="work-body">I wanted to understand what it actually takes to build a production AI product — not follow a tutorial, but own every decision. So I built one from scratch.<br/><br/>Hybrid BM25 + FAISS retrieval, cross-encoder reranking, contextual embeddings, section-aware chunking, RAGAS evaluation pipeline, real-time streaming, AWS S3 infrastructure. An ongoing personal project I continue to develop.</p>
+          <div class="work-outcome">
+            <span class="work-outcome-num">100%</span>
+            <span class="work-outcome-text">of architectural and product decisions made solo. The output was complete firsthand understanding of what a production AI product requires.</span>
+          </div>
+          <div class="work-tags">
+            <span class="tag tag-accent">Self-directed</span>
+            <span class="tag">BM25 + FAISS</span>
+            <span class="tag">Anthropic API</span>
+            <span class="tag">AWS S3</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- STACK -->
-  <section id="stack">
-    <div class="section-wrap">
-      <div class="section-label fade-in">Technical Stack</div>
-      <h2 class="fade-in">What I <span class="accent">Build With</span></h2>
-      <div class="stack-grid fade-in">
-        <div class="stack-group">
-          <div class="stack-group-label">Retrieval / AI</div>
-          <ul class="stack-items">
-            <li>BM25 Hybrid Search</li>
-            <li>FAISS Vector Store</li>
-            <li>Contextual Embeddings</li>
-            <li>RRF Reranking</li>
-            <li>Anthropic Claude API</li>
-            <li>OpenAI GPT-4o</li>
-          </ul>
-        </div>
-        <div class="stack-group">
-          <div class="stack-group-label">Data / Backend</div>
-          <ul class="stack-items">
-            <li>Python</li>
-            <li>Oracle SQL</li>
-            <li>Relational Modeling</li>
-            <li>AWS S3</li>
-            <li>ThreadPoolExecutor</li>
-            <li>REST APIs</li>
-          </ul>
-        </div>
-        <div class="stack-group">
-          <div class="stack-group-label">Systems / Infra</div>
-          <ul class="stack-items">
-            <li>Workflow Automation</li>
-            <li>Document Processing</li>
-            <li>PDF / DOCX Chunking</li>
-            <li>Admin Dashboards</li>
-            <li>Query Analytics</li>
-            <li>Agent Pipelines</li>
-          </ul>
-        </div>
-        <div class="stack-group">
-          <div class="stack-group-label">Domain</div>
-          <ul class="stack-items">
-            <li>Federal Gov Contracting</li>
-            <li>NWS / FAA / DOD</li>
-            <li>Enterprise RAG</li>
-            <li>Fiscal Automation</li>
-            <li>Knowledge Systems</li>
-            <li>AI Strategy</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="divider"></div>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="section-wrap">
-      <div class="section-label fade-in">Background</div>
-      <h2 class="fade-in">About <span class="accent">Alex</span></h2>
-      <div class="about-grid fade-in">
+      <div class="section-label">Background</div>
+      <h2>The unconventional path</h2>
+      <div class="about-grid">
         <div class="about-text">
-          <p>
-            I'm a Data & AI systems engineer based in Washington D.C., currently building <strong>Savant</strong> — a knowledge retrieval system targeting government contractors — while leading analytics, AI & automation at <strong>NOAA/NWS via Innovim</strong>.
-          </p>
-          <p>
-            My work sits at the intersection of data architecture and AI infrastructure. At NWS, I rebuilt fiscal reporting systems from the ground up using Oracle SQL and relational modeling. At Savant, I implemented Anthropic's full Contextual Retrieval stack in production — BM25 hybrid search, contextual embeddings, section-aware chunking, and RRF.
-          </p>
-          <p>
-            I'm most interested in <strong>hard operational problems</strong> at the intersection of AI, systems design, and real organizational impact — federal, startup, or my own company.
-          </p>
+          <div style="display:flex;align-items:center;gap:20px;margin-bottom:32px;">
+            <div style="width:72px;height:72px;border-radius:50%;border:2px solid var(--border2);flex-shrink:0;overflow:hidden;">
+              <img src="alex.jpeg" alt="Alex Samadi" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <div>
+              <div style="font-family:var(--font-serif);font-size:18px;font-weight:700;color:var(--text);letter-spacing:-0.01em;">Alex Samadi</div>
+              <div style="font-size:13px;color:var(--text-muted);margin-top:3px;">Analytics & Automation Lead · Washington D.C.</div>
+            </div>
+          </div>
+          <h3>"My career has had one consistent thread."</h3>
+          <p>Every role I've had has had the same shape — walk into something broken or manual, figure out what's actually wrong, and build something that gives the right people the information they need to act. I've done that inside large, complex federal organizations where the stakes are real — which means I know how to move through ambiguity, work across teams, and ship things that actually get used.</p>
+          <p>My background is unusual for someone in this space: <strong>Psychology and Entrepreneurship at Tufts</strong>, then self-taught in data engineering, SQL, and AI. Most people come from pure engineering or pure strategy. I come from a different angle — I've always been more interested in how people actually think and make decisions than in the technology itself.</p>
+          <p>That background shows up in everything I build. When I designed the logistician lookup tool, I wasn't thinking about the data model first — I was thinking about a non-technical person under pressure who needs one answer, fast. When I present to leadership, I'm not reciting metrics — I'm translating complexity into the specific framing that drives a decision. And when I'm working across engineering, logistics, and executive teams at the same time, I'm not just coordinating — I'm reading each group, adapting how I communicate, and pushing the work forward across people who often want very different things.</p>
+          <p>That combination — systems thinking, technical building, and human-centered design — is what I bring to every problem. It's why the tools I build actually get used.</p>
+          <p>I led a 20-person student marketing agency at Tufts. I TA'd an entrepreneurship and startup design course. I've advised a nonprofit on AI strategy. I've rebuilt federal data infrastructure from scratch with no team and no playbook. The common thread is ownership — I walk in, I see the whole system, and I make it better.</p>
         </div>
         <div class="about-sidebar">
-          <div class="sidebar-item">
-            <span class="sidebar-key">Location</span>
-            <span class="sidebar-val">Washington D.C.</span>
+          <div class="sidebar-block">
+            <div class="sidebar-row"><span class="sidebar-key">Location</span><span class="sidebar-val">Washington D.C.</span></div>
+            <div class="sidebar-row"><span class="sidebar-key">Education</span><span class="sidebar-val">BA Psychology &<br/>Entrepreneurship<br/>Tufts University</span></div>
+            <div class="sidebar-row"><span class="sidebar-key">Current</span><span class="sidebar-val">Analytics &<br/>Automation Lead<br/>@ NWS / NOAA</span></div>
+            <div class="sidebar-row"><span class="sidebar-key">Interests</span><span class="sidebar-val">Data · AI · Product</span></div>
           </div>
-          <div class="sidebar-item">
-            <span class="sidebar-key">Role</span>
-            <span class="sidebar-val">Founder & CTO, Savant</span>
-          </div>
-          <div class="sidebar-item">
-            <span class="sidebar-key">Day Job</span>
-            <span class="sidebar-val">Lead: Analytics, AI &amp; Automation<br/>@ NWS/NOAA</span>
-          </div>
-          <div class="sidebar-item">
-            <span class="sidebar-key">Focus</span>
-            <span class="sidebar-val">RAG · Federal AI · Automation</span>
-          </div>
-          <div class="sidebar-item">
-            <span class="sidebar-key">Status</span>
-            <span class="sidebar-val"><span class="green">● Available for consulting</span></span>
+          <div class="sidebar-block">
+            <div class="sidebar-row"><span class="sidebar-key">Stack</span><span class="sidebar-val">Python · SQL · Power Query<br/>Tableau · RAG · Excel</span></div>
+            <div class="sidebar-row"><span class="sidebar-key">LinkedIn</span><span class="sidebar-val"><a href="https://www.linkedin.com/in/alex-samadi/" target="_blank">alex-samadi →</a></span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
     <div class="section-wrap">
-      <div class="contact-inner fade-in">
-        <div>
-          <div class="section-label" style="margin-bottom:20px;">Let's Work Together</div>
-          <div class="contact-heading">
-            Have a hard<br/>
-            <span class="accent-line">problem to solve?</span>
-          </div>
-        </div>
-        <div class="contact-links">
-          <<a class="contact-link" id="em" style="cursor:pointer;"></a>
-<script>
-  var u='alexsamadi321';var d='gmail.com';
-  var el=document.getElementById('em');
-  el.href='mailto:'+u+'@'+d;
-  el.textContent=u+'@'+d;
-</script>
-          <a href="https://www.linkedin.com/in/alex-samadi/" target="_blank" class="contact-link">linkedin.com/in/alex-samadi</a>
-        </div>
+      <div>
+        <div class="section-label" style="color:rgba(255,255,255,0.3);margin-bottom:20px;">Get in touch</div>
+        <div class="contact-hed">Have a <span>hard</span><br/>problem?</div>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:alexsamadi321@gmail.com" class="contact-link">alexsamadi321@gmail.com</a>
+        <a href="https://www.linkedin.com/in/alex-samadi/" target="_blank" class="contact-link">linkedin.com/in/alex-samadi</a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <span>© 2026 Alex Samadi</span>
-    <div class="footer-dot"></div>
-    <span>Built in production. Not just prototyped.</span>
+    <div style="max-width:1200px;margin:0 auto;padding:40px 56px;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:24px;">
+      <div>
+        <div style="font-family:var(--font-serif);font-size:16px;font-weight:700;color:rgba(255,255,255,0.7);margin-bottom:6px;">Alex Samadi</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.25);">© 2026 · Washington D.C.</div>
+      </div>
+      <div style="display:flex;gap:28px;justify-content:center;">
+        <a href="#work" style="font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">Work</a>
+        <a href="#about" style="font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">About</a>
+        <a href="#contact" style="font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">Contact</a>
+        <a href="https://www.linkedin.com/in/alex-samadi/" target="_blank" style="font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">LinkedIn</a>
+      </div>
+      <div style="text-align:right;">
+        <a href="mailto:alexsamadi321@gmail.com" style="font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">alexsamadi321@gmail.com</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.05);padding:16px 56px;max-width:100%;display:flex;justify-content:center;">
+      <span style="font-size:11px;color:rgba(255,255,255,0.15);letter-spacing:0.06em;text-transform:uppercase;">Data · AI · Product · Washington D.C.</span>
+    </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // Nav scroll effect
+  <script>
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 20);
-    });
-
-    // Fade in on scroll
-    const observer = new IntersectionOb
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 20); });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
